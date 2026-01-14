@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Book Publishing Board</title>
+    
+<script src="https://js.bytescale.com/upload-js-full/v1"></script>
+
+  <script type="module" crossorigin src="/vite-firebase/assets/index-BDkrZO-V.js"></script>
+  <link rel="stylesheet" crossorigin href="/vite-firebase/assets/index-cCQ_ivlH.css">
+</head>
+<body>
+
+    <video autoplay muted loop id="bg-video">
+        <source src="/vite-firebase/assets/Ghibli_Tech-NbYXzw4L.mp4" type="video/mp4">
+    </video>
+
+    <div class="content-container">
+        
+        <section id="logged-out-view">
+            <div class="auth-header" >
+                <h2>AL-HATF PUBLISHING </h2>
+                <p class="auth-subtitle">E-Book Publishing Board</p>
+            </div>
+
+            <div class="toggle-container">
+                <button id="signin-toggle-btn" class="active" type="button">Login</button>
+                <button id="signup-toggle-btn" type="button">Sign Up</button>
+            </div>
+
+            <form id="auth-form" onsubmit="event.preventDefault();">
+                <input type="email" class="glass-input" id="login-email" placeholder="Email" required>
+               <br><br>
+               
+                <input type="password" class="glass-input" id="login-password" placeholder="Password" required>
+
+                <div id="signup-extra">
+                    <br>
+                    <input type="password" class="glass-input" id="confirm-password" placeholder="Confirm Password">
+                </div>
+
+                <div class="login-actions">
+                    <button type="submit" class="btn btn-primary" id="auth-action-btn">Sign In</button>
+                    
+                    <div class="divider-container">OR</div>
+                    
+                    <button type="button" class="btn btn-google" id="google-btn">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" width="18" alt="Google logo">
+                        Sign in with Google
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section id="logged-in-view">
+            <aside class="sidebar">
+                <div class="sidebar-icon">حفي</div>
+                <a href="https://www.bytescale.com/signin?returnTo=%2Fdashboard%2Ffiles" class="nav-item" title="Files" style="text-decoration:none;color:inherit;">
+                    <span>📁</span><span class="nav-label">Documents</span>
+                </a>
+                <div class="nav-item" title="Help"><span>💬</span><span class="nav-label">Help</span></div>
+                <div class="nav-item logout" id="logout-btn" title="Logout"><span>🚪</span><span class="nav-label">Logout</span></div>
+            </aside>
+
+            <main class="main-dash">
+                <h2 class="dash-title" style="color: rgba(255,255,255,0.7);">Publishing Dashboard</h2>
+                <p class="user-info">Logged in as: <span id="user-display">...</span></p>
+
+                <h2 class="dash-title" style="color: rgba(255,255,255,0.7);">Upload to Library</h2>
+                <p class="subtitle" style="color: rgba(255,255,255,0.7);">Submit your book to the cloud database.</p>
+
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label for="title" style="color: #fff;">Book Title</label>
+                        <input type="text" id="title" class="glass-input" placeholder="e.g. Enter Book Title" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="author" style="color: #fff;">Author Name</label>
+                        <input type="text" id="author" class="glass-input" placeholder="e.g. Enter Author Name" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="category" style="color: #fff;">Category</label>
+                        <select id="category" class="glass-input" required>
+                            <option value="" disabled selected>Select a Category...</option>
+                            
+                            <option value="Science">Science</option>
+                            <option value="History">History</option>
+                            <option value="Motivation">Motivation</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Philosophy">Philosophy</option>
+                            <option value="Business">Business</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="file-upload-section">
+                    <label for="file-input" class="upload-area" style="background: rgba(255,255,255,0.03); border: 2px dashed rgba(255,255,255,0.3); color: #fff;">
+                        <div class="icon-cloud" style="font-size: 2rem; margin-bottom: 10px;">☁️</div>
+                        <span id="file-status">Click to select E-Book (PDF/EPUB)</span>
+                        <input type="file" id="file-input" accept=".pdf,.epub,.docx">
+                    </label>
+                </div>
+
+                <button id="submit-cloud-btn" class="btn btn-success" style="width: 100%; margin-top: 10px;">
+                    Upload Book
+                </button>
+            </main>
+        </section>
+    </div>
+
+</body>
+</html>
